@@ -95,8 +95,13 @@ If your application targets iOS 7.x, you’ll need to install the static framewo
 
 1. Build from source manually per above.
 
-1. Open the project editor and select your application target. Drag `build/ios/pkg/static/Mapbox.framework` into the “Embedded Binaries” section of the General tab. (Don’t drag it into the “Linked Frameworks and Libraries” section; Xcode will add it there automatically.) In the sheet that appears, make sure “Copy items if needed” is checked, then click Finish.
-
+1. Copy the contents of `build/ios/pkg/static` into your project. It should happen automatically, but ensure that:
+   
+   - `Mapbox.framework` is listed in your `Link Binary With Libraries` build phase.
+   - The path to the project's local copy of `Mapbox.framework` is in your *Framework Search Paths* (`FRAMEWORK_SEARCH_PATHS`) build setting.   
+   - `Mapbox.bundle` is in your target's *Copy Bundle Resources* build phase.
+   - `Settings.bundle` is in your target's *Copy Bundle Resources* build phase.
+ 
 1. Add the following Cocoa Touch frameworks and libraries to the “Linked Frameworks and Libraries” section:
 
    - `GLKit.framework`
